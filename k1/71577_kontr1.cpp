@@ -93,8 +93,20 @@ class Team
 {
 private:
     int size, MAX_SIZE=100;
+    char* team_name;
     Programmer* programmers;
 public:
+char* getTeam_Name() const
+{
+    return team_name;
+}
+void setTeam_Name(char* team_name)
+{
+        delete [] this->team_name;
+        this->team_name=new char[strlen(team_name)+1];
+        assert(this->team_name!=NULL);
+        strcpy(this->team_name, team_name);
+}
     int getSize()
     {
         return size;
@@ -111,8 +123,6 @@ public:
         Programmer newList[100];
         for(int i=0; i<size; i++)
         {
-            // strcmp
-            // - 0.1
             if(programmers[i].getName() != n)
             {
                 newList[i]= programmers[i];
@@ -138,27 +148,59 @@ public:
             cout<<"Salary:"<<programmers[i].getSalary()<<endl;
         }
     }
-    Team ()
+    Team (char* tea_name="Gotinite", int size=38)
     {
-        //wuut??
+        
         {
             this->programmers=new Programmer[size+1];
             assert(this->programmers != NULL);
+            this->team_name=new char[strlen(team_name)+1];
+          assert(this->team_name != NULL);
+          strcpy(this->team_name, team_name);
+          this->size=size; 
         }
     }
     ~Team()
     {
         delete []programmers;
     }
+    Team (const Team &other)
+   {
+        team_name=new char[strlen(other.team_name)+1];
+       assert(team_name != NULL);
+        strcpy(team_name, other.team_name);
+        size=other.size;
+    }
+    Team &operator=(const Team & other)
+    {
+        if(this != &other)
+        {
+            delete []team_name;
+            team_name=new char[strlen(other.team_name)+1];
+            assert(team_name != NULL);
+            strcpy(team_name, other.team_name);
+            size=other.size;
+        }
+       return *this;
+    }
 
 };
-//.... no dynamic memory, missing a lot of other imporant things
-// - 1.0
+
 class Company
 {
+private:
+Team teams[20]; //pravq go statichen, poneje v uslovieto ne pishe che trqbva da e dinamichen 
+ {
     double averageIq()
     {
         double avg;
+        for(int i=0; i<20; i++)
+        {
+            double sum = team[i].programmers[i].getSize();
+       }
+        double avg=sum/20*team[i].programmers[i].getSize();
+        cout<<"Averaga iq:"<<avg<<ednl;
+       }
 
 };
 // - 1.5
