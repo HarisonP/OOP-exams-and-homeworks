@@ -1,0 +1,491 @@
+// Домашна ООП - практикум.cpp : Defines the entry point for the console application.
+//Ивайло Иванов Дончев 71568
+
+#include "stdafx.h"
+#include<iostream>
+#include<cassert>
+#include <math.h>
+using namespace std;
+const double pi = 3.14159265359;
+
+class Point
+{
+public:
+	const double getX()
+	{
+		return x;
+	}
+	const double getY()
+	{
+		return y;
+	}
+
+	void setX(double _x)
+	{
+		x = _x;
+	}
+	void setY(double _y)
+	{
+		y = _y;
+	}
+
+	Point()
+	{
+		setX(0);
+		setY(0);
+	}
+	Point(int _x, int _y)
+	{
+		setX(_x);
+		setY(_y);
+	}
+	Point(const Point& other)
+	{
+		if (this != &other)
+		{
+			x = other.x;
+			y = other.y;
+		}
+	}
+	~Point()
+	{
+
+	}
+	Point& operator=(const Point& other)
+	{
+		if (this != &other)
+		{
+			x = other.x;
+			y = other.y;
+		}
+
+		return *this;
+	}
+	bool operator== (const Point& other)
+	{
+		return ((x == other.x) && (y == other.y));
+	}
+	void print()
+	{
+		cout << "( " << x << ", " << y << " )";
+	}
+private:
+	double x, y;
+};
+class Side :public Point
+{
+public:
+	const Point getM()
+	{
+		return m;
+	}
+	const Point getN()
+	{
+		return n;
+	}
+	double getLenght()
+	{
+		return sqrt((m.getX() - n.getX())*(m.getX() - n.getX()) + (m.getY() - n.getY())*(m.getY() - n.getY()));
+	}
+
+	void setM(Point _m)
+	{
+		m = _m;
+	}
+	void setN(Point _n)
+	{
+		n = _n;
+	}
+
+	Side() :Point()
+	{
+		setM(Point(0, 0));
+		setN(Point(0, 0));
+		lenght = getLenght();
+	}
+	Side(Point a, Point b)
+	{
+		m = a;
+		n = b;
+		lenght = getLenght();
+	}
+	Side(const Side& other)
+	{
+		if (this != &other)
+		{
+			m = other.m;
+			n = other.n;
+		}
+	}
+	~Side()
+	{
+
+	}
+
+	Side& operator=(const Side& other)
+	{
+		if (this != &other)
+		{
+			m = other.m;
+			n = other.n;
+		}
+		return *this;
+	}
+	Side& operator+(const Side& other)
+	{
+		if (this != &other)
+		{
+			this->lenght += other.lenght;
+		}
+		return *this;
+	}
+	Side& operator-(const Side& other)
+	{
+		if (this != &other)
+		{
+			this->lenght -= other.lenght;
+		}
+		return *this;
+	}
+private:
+	Point m, n;
+	double lenght;
+};
+class Figure 
+{
+public:
+	virtual double Surface() = 0;
+	virtual double Perimeter() = 0;
+	//virtual Point Center() = 0;//връща координатите на центъра на фигурата
+	//virtual bool Is_inside()=0;
+	virtual void spec() = 0;
+	virtual void print()
+	{
+		spec();
+		cout << "Perimeter: " << Perimeter() << endl
+			<< "Surface: " << Surface() << endl;
+	}
+private:
+
+
+};
+class Triangle :public Figure
+{
+public:
+	const Point getA()
+	{
+		return a;
+	}
+	const Point getB()
+	{
+		return b;
+	}
+	const Point getC()
+	{
+		return c;
+	}
+
+	void setPointA(int z, int x)
+	{
+		a = Point(z, x);
+	}
+	void setPointB(int z, int x)
+	{
+		b = Point(z, x);
+	}
+	void setPointC(int z, int x)
+	{
+		c = Point(z, x);
+	}
+
+	Triangle() :Figure()
+	{
+		a = Point(0, 0);
+		b = Point(0, 0);
+		c = Point(0, 0);
+		sa = Side(b, c);
+		sb = Side(a, c);
+		sc = Side(a, b);
+	}
+	Triangle(Point _a, Point _b, Point _c)
+	{
+		a = _a;
+		b = _b;
+		c = _c;
+		sa = Side(b, c);
+		sb = Side(a, c);
+		sc = Side(a, b);
+	}
+	Triangle(const Triangle& other)
+	{
+		if (this != &other)
+		{
+			a = other.a;
+			b = other.b;
+			c = other.c;
+			sa = other.sa;
+			sb = other.sb;
+			sc = other.sc;
+		}
+	}
+	~Triangle()
+	{
+		
+	}
+
+	Triangle& operator=(const Triangle& other)
+	{
+		if (this != &other)
+		{
+			a = other.a;
+			b = other.b;
+			c = other.c;
+			sa = other.sa;
+			sb = other.sb;
+			sc = other.sc;
+		}
+		return *this;
+	}
+
+	bool operator==(const Triangle& other)
+	{
+		return ((a == other.a) && (b == other.b) && (c == other.c));
+	}
+	double Perimeter()
+	{
+
+		return (sa.getLenght() + sb.getLenght() + sc.getLenght());
+	}
+	double Surface()
+	{
+		double p = Perimeter() / 2;
+		return (sqrt(p*(p - sa.getLenght())*(p - sb.getLenght())*(p - sc.getLenght())));
+	}
+	
+	void spec()
+	{
+		cout << "Figure type: Triangle\n";
+	}
+/*	Point Center()
+	{
+		
+	}*/
+private:
+	Point a, b, c;
+	Side sa, sb, sc;
+	const static char type = 't';
+};
+class Circle :public Figure
+{
+public:
+	const Point getCenter()
+	{
+		return center;
+	}
+	const Side getRadius()
+	{
+		radius = Side(center, border);
+		return radius;
+	}
+
+	void setCenter(Point _center)
+	{
+		center = _center;
+	}
+	void setRadius(Side _radius)
+	{
+		radius = _radius;
+	}
+
+	Circle()
+	{
+		center = Point(0, 0);
+		radius = Side(Point(0, 0), Point(0, 0));
+		getRadius();
+	}
+	Circle(Point _center, Point _border)
+	{
+		center = _center;
+		border = _border;
+		getRadius();
+	}
+	Circle(const Circle& other)
+	{
+		if (this != &other)
+		{
+			border = other.border;
+			center = other.center;
+			
+		}
+	}
+	~Circle()
+	{
+
+	}
+	
+	Circle& operator=(const Circle& other)
+	{
+		if (this != &other)
+		{
+			radius = other.radius;
+			center = other.center;
+			
+		}
+		return *this;
+	}
+	bool operator==(const Circle& other)
+	{
+		return ((center == other.center) && (border == other.border));
+	}
+	Point Center()
+	{
+		return center;
+	}
+	double Perimeter()
+	{
+		return 2 * pi*radius.getLenght();
+	}
+	double Surface()
+	{
+		return pi*radius.getLenght()*radius.getLenght();
+	}
+
+	void spec()
+	{
+		cout << "Figure type: Circle\nCenter: ";
+		Center().print();
+		cout << endl;
+	}
+private:
+	Point center;
+	Point border;//точка от окръжността
+	Side radius;
+	const static char type = 'c';
+};
+class Rectangle :public Figure
+{
+public:
+	const Point getA1()
+	{
+		return a1;
+	}
+	const Point getA2()
+	{
+		return a2;
+	}
+	const Point getA3()
+	{
+		return a3;
+	}
+	const Point getA4()
+	{
+		return a4;
+	}
+
+	void setA1(Point _a1)
+	{
+		a1 = _a1;
+	}
+	void setA2(Point _a2)
+	{
+		a2 = _a2;
+	}
+	void setA3(Point _a3)
+	{
+		a3 = _a3;
+	}
+	void setA4(Point _a4)
+	{
+		a4 = _a4;
+	}
+
+	Rectangle()
+	{
+		a = Side(Point(0, 0), Point(0, 0));
+		b = Side(Point(0, 0), Point(0, 0));
+	}
+	/*Rectangle(Side _a, Side _b)
+	{
+		a = _a;
+		b = _b;
+	}*/
+
+	
+	Rectangle(Point a1, Point a2, Point a3, Point a4)//ot dolnata lqva to4ka obratno na 4asovnikovata strelka
+	{
+		if ((a1.getY() == a2.getY() && a2.getX() == a3.getX() && a3.getY() == a4.getY() && a4.getX() == a1.getX()))
+		{
+		a = Side(a1, a2);
+		b = Side(a3, a4);
+		}
+		else cout << "Error: That's not rectangle :)";
+	}
+	Rectangle(const Rectangle& other)
+	{
+		if (this != &other)
+		{
+			a1 = other.a1;
+			a2 = other.a2;
+			a3 = other.a3;
+			a4 = other.a4;
+		}
+	}
+	~Rectangle()
+	{
+
+	}
+
+	Rectangle& operator=(const Rectangle& other)
+	{
+		if (this != &other)
+		{
+			a1 = other.a1;
+			a2 = other.a2;
+			a3 = other.a3;
+			a4 = other.a4;
+		}
+		return *this;
+	}
+	
+	bool operator==(const Rectangle& other)
+	{
+		return ((a1 == other.a1) && (a2 == other.a2) && (a3 == other.a3) && (a4 == other.a4));
+	}
+	
+	Point Center()
+	{
+		Point c(a2.getX() - a1.getX(), a4.getY() - a1.getY());
+		return c;
+	}
+	double Perimeter()
+	{
+		return 2 * (a.getLenght() + b.getLenght());
+	}
+	double Surface()
+	{
+		return a.getLenght()*b.getLenght();
+	}
+
+	void spec()
+	{
+		cout << "\nFigure type: Rectangle\nCenter: ";
+		Center().print();
+		cout << endl;
+	}
+private:
+	Point a1, a2, a3, a4;
+	Side a, b;
+	const static char type = 'r';
+};
+
+int main()
+{
+	Point x(0, 0), y(0, 10), z(1, 1), r(1, 5), t(10, 5);
+
+	Circle q(x,y), w(z,r);
+	Triangle a(x, y, z), b(x, y, z), c(x, y, t);
+	cout << endl << endl;
+	cout << sizeof(Triangle) << endl << sizeof(Circle) << endl << sizeof(Rectangle) << endl;
+	return 0;
+}
+
