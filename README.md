@@ -25,24 +25,24 @@ K1 - Group 1: </br>
 
 
 K1 - Group 2: </br>
-71531 K1 5.50 </br>
-71544 K1 5.50 </br>
-71551 K1 5.00 </br>
-71557 K1 5.25 </br>
-71560 K1 4.50 </br>
-71566 K1 2.50 </br>
-71569 K1 6.00 D1:later K2 4.30 D2 waiting</br>
-71572 K1 5.00 </br>
-71575 K1 3.00 D1: later K2 3.00 D2: waiting </br>
-71578 K1 4.00 </br>
-71584 K1 3.00 D1: later K2 2.80 D2: waiting </br> (make some homeworks and you are in the game)
-71563 K1 5.25 </br>
-71468 K1 2.50 </br>
-71514 K1 6.00 </br>
+71531 K1 5.50 D1 2.00 K2 5.60 D2 6.00  <strong> Final: 6.00 </strong> </br>
+71544 K1 5.50 D1 5.50 K2 5.75 D2 5.50  <strong> Final: 6.00 </strong>  </br>
+71551 K1 5.00 D1 2.00 K2 4.75 D2 5.00  <strong> Final: 5.00 </strong> </br>
+71557 K1 5.25 D1 2.00 K2 5.00 D2 2.00  <strong> Final: 4.00 </strong> </br>
+71560 K1 4.50  D1 2.00 K2 4.00 D2 2.00 <strong> Final: 4.00 </strong> </br>
+71566 K1 2.50 D1 4.00 K2 2.00 D2 2.00  <strong> Final: 2.00</strong> (shame *ding*) </br>
+71569 K1 6.00 D1 5.75 K2 4.30 D2 6.00  <strong> Final: 6.00</strong> </br>
+71572 K1 5.00 D1 5.50 K2 5.50 D2 5.80  <strong> Final: 6.00 </strong> </br>
+71575 K1 3.00 D1 2.00 K2 3.00 D2 4.00  <strong> Final: 3.00 </strong></br>
+71578 K1 4.00 D1 5.00 K2 3.25 D2 4.50  <strong> Final: 4.00 </strong> </br>
+71584 K1 3.00 D1 4.50 K2 2.80 D2 4.00  <strong> Final: 3.00 </strong> </br>
+71563 K1 5.25 D1 6.00 K2 5.25 D2 5.50  <strong> Final: 6.00 </strong> </br>
+71468 K1 2.50 D1 2.00 K2 2.00 D2 2.00  <strong> Final: 2.00</strong> (shame *ding*) </br>
+71514 K1 6.00 D1 5.50 K2 3.75 D2 5.25  <strong> Final: 5.00 </strong> </br>
 71459 K1 5.00 </br>
-71587 K1 5.00 </br> 
+71587 K1 5.00  D1 2.00 K2 4.00 D2 2.00 <strong> Final: 4.00 </strong> </br> 
 71534 K1 3.30 </br>
-71547 K1 2.50 </br>
+71547 K1 2.50 D1 2.00 K2 2.00 D2 2.00  <strong> Final: 2.00</strong> (shame *ding*) </br>
 71540 K1 5.60 D1 later K2 6.00 D2 waiting</br>
 71590 K1 5.80 D1 later K2 4.50 D2 waiting </br>
 71548 K1 4.40 D1 5.00 K2 4.70 D2: In america. <strong>Final: 5.00</strong> </br>
@@ -50,6 +50,12 @@ K1 - Group 2: </br>
 71593 K1 5.60 D1 later K2 5.10 D2 waiting </br>
 
 71581 K1 with gr3 D1 later K2 3.00 D2 waiting
+(shame *ding*) </br>
+71463 K1 2.00 D1 2.00 K2 2.00 D2 2.00 <strong> Final: 2.00 </strong> </br>
+(shame *ding*)
+</br>
+71464 K1 2.00 D1 2.00 K2 2.00 D2 2.00 <strong> Final: 2.00 </strong> </br>
+(shame *ding*) </br>
 </br> </br>
 
 <strong>
