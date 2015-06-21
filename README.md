@@ -1,4 +1,4 @@
-# OOP-exams-and-homeworks
+f# OOP-exams-and-homeworks
 Results from homeworks and exams
 :)</br>
 
@@ -6,7 +6,7 @@ K1 - Group 1: </br>
 71594 K1 5.00 D1 5.00 K2 4.00 D2 4.50 <strong> Final: 5.00 </strong> </br>
 71530 K1 6.00 D1 5.50 K2 5.00 D2 5.50 <strong> Final: 6.00 </strong> </br>
 71565 K1 5.20 D1 2.00 K2 3.30 D2 2.00 <strong> Final: 4.00 </strong> </br>
-71568 K1 3.40 D1 4.00 K2 3.40 D2 2.00 <strong> Final: 3.00 </strong> </br>
+71568 K1 3.40 D1 4.00 K2 3.40 D2 4.40 <strong> Final: 4.00 </strong> </br>
 71580 K1 4.80 D1 4.00 K2 3.50 D2 5.00 <strong> Final: 4.00 </strong> </br>
 71559 K1 3.00 D1 2.00 K2 2.00 D2 2.00 <strong> Final: 2.00</strong> (shame *ding*)< </br>
 71574 K1 2.00(6.00) (shame *ding* cheater) D1: 6.00  K2 5.60 D2: 6.00 <strong> Final: 6.00</strong> </br>
@@ -25,10 +25,10 @@ K1 - Group 1: </br>
 
 
 K1 - Group 2: </br>
-71531 K1 5.50 D1 2.00 K2 5.60 D2 6.00  <strong> Final: 6.00 </strong> </br>
+71531 K1 5.50 D1 5.25 K2 5.60 D2 6.00  <strong> Final: 6.00 </strong> </br>
 71544 K1 5.50 D1 5.50 K2 5.75 D2 5.50  <strong> Final: 6.00 </strong>  </br>
-71551 K1 5.00 D1 2.00 K2 4.75 D2 5.00  <strong> Final: 5.00 </strong> </br>
-71557 K1 5.25 D1 2.00 K2 5.00 D2 2.00  <strong> Final: 4.00 </strong> </br>
+71551 K1 5.00 D1 5.00 K2 4.75 D2 5.00  <strong> Final: 5.00 </strong> </br>
+71557 K1 5.25 D1 5.00 K2 5.00 D2 4.00  <strong> Final: 5.00 </strong> </br>
 71560 K1 4.50 D1 2.00 K2 4.00 D2 2.00  <strong> Final: 4.00 </strong> </br>
 71566 K1 2.50 D1 4.00 K2 2.00 D2 2.00  <strong> Final: 2.00</strong> (shame *ding*) </br>
 71569 K1 6.00 D1 5.75 K2 4.30 D2 6.00  <strong> Final: 6.00</strong> </br>
@@ -46,10 +46,10 @@ K1 - Group 2: </br>
 71468 K1 2.50 D1 2.00 K2 2.00 D2 2.00  <strong> Final: 2.00</strong> (shame *ding*) </br>
 71590 K1 5.80 D1 4.50 K2 4.50 D2 5.00  <strong> Final: 5.00</strong> </br>
 71548 K1 4.40 D1 5.00 K2 4.70 D2 4.50  <strong> Final: 5.00</strong> </br>
-71537 K1 4.30 D1 4.50 K2 4.90 D2 2.00  <strong> Final: 4.00</strong></br>
+71537 K1 4.30 D1 4.50 K2 4.90 D2 5.00  <strong> Final: 5.00</strong></br>
 71593 K1 5.60 D1 5.50 K2 5.10 D2 6.00  <strong> Final: 6.00</strong> </br>
 
-71581 K1 ???   D1 5.00 K2 3.00 D2 5.00 <strong> Final: 4.00 +- 1</strong> 
+71581 K1 6.00   D1 5.00 K2 3.00 D2 5.00 <strong> Final: 5.00 </strong> 
 
 (shame *ding*) </br>
 71463 K1 2.00 D1 2.00 K2 2.00 D2 2.00 <strong> Final: 2.00 </strong> </br>
