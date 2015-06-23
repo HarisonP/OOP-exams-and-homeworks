@@ -1,0 +1,190 @@
+#include <iostream>
+#include <cassert>
+#include <cstring>
+#include <cmath>
+using namespace std;
+class Point
+{
+public:
+	Point(double x = 0, double y = 0)
+	{
+	this->x = x;
+	this->y = y;
+	}
+	Point(const Point& other)
+	{
+	x = other.x;
+	y = other.y;
+	}
+	Point& operator=(const Point& other)
+	{
+	if (this != &other)
+	{
+	x = other.x;
+	y = other.y;
+	}
+	return *this;
+	}
+	Point operator+(const Point& other)
+	{
+		double a = x + other.x,
+			b = y + other.y;
+		Point c(a, b);
+		return c;
+	}
+	Point operator/(int a)
+	{
+		Point b(x / a, y / a);
+		return b;
+	}
+	double getX()const
+	{
+		return x;
+	}
+	double getY()const
+	{
+		return y;
+	}
+	void print()const
+	{
+		cout << "(" << x << "," << y << ")" << endl;
+	}
+private:
+	double x, y;
+};
+double length(Point A, Point B)
+{
+	return sqrt(pow(B.getX() - A.getX(), 2) + pow(B.getY() - A.getY(), 2));
+}
+Point vector(Point A, Point B)
+{
+	Point c(B.getX() - A.getX(), B.getY() - A.getY());
+	return c;
+}
+class Shape
+{
+	virtual double area()const = 0;
+	virtual double perimeter()const = 0;
+	virtual Point center()const = 0;
+};
+class Triangle : public Shape
+{
+public:
+	Triangle(Point A, Point B, Point C)
+	{
+		this->A = A;
+		this->B = B;
+		this->C = C;
+	}
+	Triangle(const Triangle& other)
+	{
+		A = other.A;
+		B = other.B;
+		C = other.C;
+	}
+	Triangle& operator=(const Triangle& other)
+	{
+		if (this != &other)
+		{
+			A = other.A;
+			B = other.B;
+			C = other.C;
+		}
+		return *this;
+	}
+	double area()const
+	{
+		return (A.getX()*B.getY() + A.getY()*C.getX() + B.getX()*C.getY() - C.getX()*B.getY() - B.getX()*A.getY() - A.getX()*C.getY())/2;
+	}
+	double perimeter()const
+	{
+		return length(A, B) + length(B, C) + length(A, C);
+	}
+	Point center()const
+	{
+		Point O((A.getX() + B.getX() + C.getX()) / 3, (A.getY() + B.getY() + C.getY()) / 3);
+		return O;
+	}
+private:
+	Point A, B, C;
+};
+class Circle : public Shape
+{
+public:
+	Circle(Point O, int r = 0)
+	{
+		this->O = O;
+		this->r = r;
+	}
+	Circle(const Circle& other)
+	{
+		O = other.O;
+		r = other.r;
+	}
+	Circle& operator=(const Circle& other)
+	{
+		if (this != &other)
+		{
+			O = other.O;
+			r = other.r;
+		}
+		return *this;
+	}
+	double area()const
+	{
+		return 3.14 * r;
+	}
+	double perimeter()const
+	{
+		return 2*3,14*r;
+	}
+	Point center()const
+	{
+		return O;
+	}
+private:
+	Point O;
+	double r;
+};
+class Rectangle : public Shape
+{
+	Rectangle(Point A, Point B, Point C, Point D)
+	{
+		this->A = A;
+		this->B = B;
+		this->C = C;
+		this->D = D;
+	}
+	Rectangle(const Rectangle& other)
+	{
+		A = other.A;
+		B = other.B;
+		C = other.C;
+		D = other.D;
+	}
+	Rectangle& operator=(const Rectangle& other)
+	{
+		if (this != &other)
+		{
+			A = other.A;
+			B = other.B;
+			C = other.C;
+			D = other.D;
+		}
+		return *this;
+	}
+	double area()const
+	{
+		return length(A, B) * length(A, D);
+	}
+	double perimeter()const
+	{
+		return 2 * length(A, B) + 2 * length(A, D);
+	}
+	Point center()
+	{
+		return (A + C)/2;
+	}
+private:
+	Point A, B, C, D;
+};
