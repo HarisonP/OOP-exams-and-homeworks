@@ -24,16 +24,22 @@ int main()
 	ListPerson l1;
 	ListPerson l2;
 
-	l1.addPerson(ivan); l1.print();
-	l2.addPerson(pesho); l2.print();
+	l1.addPerson(ivan);
+	l1.print();
+	l2.addPerson(pesho);
+	l2.print();
 
-	l1.addPerson(pesho); l1.print();  
-	l1.deletePerson("Ivanov"); l1.print();
+	l1.addPerson(pesho);
+	l1.print();  
+	l1.deletePerson("Ivanov");
+	l1.print();
 
 	l1.getPerson("Petrov");
 	l1.unionList(l2);
 	l1.sectionList(l2);
 	l1.differenceList(l2);
+
+	l1.getZodia("Petrov");
 
 	system("pause");
 	return 0;
